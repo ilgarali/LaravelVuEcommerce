@@ -11,7 +11,7 @@
             </div>
           </div>
           <div class="col-md-8">
-            <h1 class="mt-5">{{single.title}}</h1>
+            <h2 class="mt-5 mx-2">{{single.title}}</h2>
             <p>{{single.content}}</p>
             <button
               type="button"

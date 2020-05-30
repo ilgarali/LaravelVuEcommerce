@@ -46,7 +46,9 @@
                 </div>
               </div>
             </div>
+            <router-link :to="{name:'Detail',params:{slug:featured.slug}}">
             <h5 class="text-center my-2 text-muted">{{featured.title}}</h5>
+            </router-link>
             <div class="starts text-center">
               <i class="far fa-star"></i>
               <i class="far fa-star"></i>
@@ -106,7 +108,9 @@
                 </div>
               </div>
             </div>
+              <router-link :to="{name:'Detail',params:{slug:post.slug}}">
             <h5 class="text-center my-2 text-muted">{{post.title}}</h5>
+            </router-link>
             <div class="starts text-center">
               <i class="far fa-star"></i>
               <i class="far fa-star"></i>

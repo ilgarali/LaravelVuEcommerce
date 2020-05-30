@@ -26,10 +26,17 @@ export const addToCart = ({commit},id) => {
     .catch((error) => console.log(error))
     
 }
-export const increaseQunatity = ({commit},{id,quantity}) => {
-    commit('INCREASE',{id,quantity})
+export const increaseQunatity = ({commit},id) => {
+    commit('INCREASE',id)
     
 }
+
+
+export const decreaseQunatity = ({commit},id) => {
+    commit('DECREASE',id)
+    
+}
+
 
 export const removeItem = ({commit},id) => {
     commit('GETREMOVED',id)

@@ -1,9 +1,9 @@
 <template>
   <nav class="navbar navbar-container navbar-expand-lg navbar-dark" id="mainNav">
     <div class="container my-2">
-      <a class="navbar-brand" href="/">
+      <router-link  class="navbar-brand" to="/">
         <img src="../assets/logo.png" />
-      </a>
+      </router-link>
 
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav text-uppercase m-auto">

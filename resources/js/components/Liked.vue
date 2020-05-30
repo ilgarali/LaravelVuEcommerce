@@ -6,7 +6,7 @@
 <div class="card shopping-cart">
     <div class="card-header bg-dark text-light">
         <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-        Shopping cart
+        Liked Element
         <router-link to="/" class="btn btn-outline-info btn-sm pull-right">Continiu shopping</router-link>
         <div class="clearfix"></div>
     </div>

@@ -20,15 +20,14 @@ export const ADDCART = (state,{id,res}) => {
     state.allPosts = res.data.data; 
     
     let checkExist = state.cart.find((data) => data.id == id)
-   
-    
+     
     if (checkExist) {
-        checkExist.quantity += 1;
+      checkExist.quantity = parseInt(checkExist.quantity) + 1;
         const Toast = Swal.mixin({
             toast: true,
             position: 'top-end',
             showConfirmButton: false,
-            timer: 3000,
+            timer: 1501,
             timerProgressBar: true,
             onOpen: (toast) => {
               toast.addEventListener('mouseenter', Swal.stopTimer)
@@ -48,7 +47,7 @@ export const ADDCART = (state,{id,res}) => {
             toast: true,
             position: 'top-end',
             showConfirmButton: false,
-            timer: 3000,
+            timer: 1501,
             timerProgressBar: true,
             onOpen: (toast) => {
               toast.addEventListener('mouseenter', Swal.stopTimer)
@@ -66,15 +65,18 @@ export const ADDCART = (state,{id,res}) => {
 }
 
 
-export const INCREASE = (state,{id,quantity}) => {
-    let checkExist = state.cart.find((data) => data.id == id)
-    checkExist.quantity += 1;
-
-    const Toast = Swal.mixin({
+export const INCREASE = (state,id) => {
+  let checkExist = state.cart.find((data) => data.id == id)
+   
+   
+    
+    if (checkExist) {
+      checkExist.quantity =parseInt(checkExist.quantity) + 1;
+      const Toast = Swal.mixin({
         toast: true,
         position: 'top-end',
         showConfirmButton: false,
-        timer: 3000,
+        timer: 1501,
         timerProgressBar: true,
         onOpen: (toast) => {
           toast.addEventListener('mouseenter', Swal.stopTimer)
@@ -84,10 +86,60 @@ export const INCREASE = (state,{id,quantity}) => {
       
       Toast.fire({
         icon: 'success',
-        title: 'Item quantity increased successfully'
+        title: 'Item quantity has increased successfully'
       })
+    }
+    
+    
+  
     
 }
+
+
+export const DECREASE = (state,id) => {
+  let checkExist = state.cart.find((data) => data.id == id)
+  if (checkExist.quantity > 1) {
+    checkExist.quantity -= 1;
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 1501,
+      timerProgressBar: true,
+      onOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+      }
+    })
+    
+    Toast.fire({
+      icon: 'success',
+      title: 'Item quantity has decreased successfully'
+    })
+  }
+  else {
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 1501,
+      timerProgressBar: true,
+      onOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+      }
+    })
+    
+    Toast.fire({
+      icon: 'error',
+      title: 'Item quantity can not be decreased'
+    })
+  }
+
+  
+  
+}
+
 
 export const GETREMOVED = (state,id) => {
     state.cart.splice(state.cart.findIndex(item => item.id == id),1)
@@ -95,7 +147,7 @@ export const GETREMOVED = (state,id) => {
         toast: true,
         position: 'top-end',
         showConfirmButton: false,
-        timer: 3000,
+        timer: 1501,
         timerProgressBar: true,
         onOpen: (toast) => {
           toast.addEventListener('mouseenter', Swal.stopTimer)
@@ -131,7 +183,7 @@ export const ADDTOHEART = (state,{id,res}) => {
             toast: true,
             position: 'top-end',
             showConfirmButton: false,
-            timer: 3000,
+            timer: 1501,
             timerProgressBar: true,
             onOpen: (toast) => {
               toast.addEventListener('mouseenter', Swal.stopTimer)
@@ -151,7 +203,7 @@ export const ADDTOHEART = (state,{id,res}) => {
             toast: true,
             position: 'top-end',
             showConfirmButton: false,
-            timer: 3000,
+            timer: 1501,
             timerProgressBar: true,
             onOpen: (toast) => {
               toast.addEventListener('mouseenter', Swal.stopTimer)
@@ -174,7 +226,7 @@ export const GETUNLIKED = (state,id) => {
         toast: true,
         position: 'top-end',
         showConfirmButton: false,
-        timer: 3000,
+        timer: 1501,
         timerProgressBar: true,
         onOpen: (toast) => {
           toast.addEventListener('mouseenter', Swal.stopTimer)
@@ -196,12 +248,12 @@ export const ADDEDCART = (state,{id,res}) => {
    
     
     if (checkExist) {
-        checkExist.quantity += 1;
+      checkExist.quantity =parseInt(checkExist.quantity) + 1;
         const Toast = Swal.mixin({
             toast: true,
             position: 'top-end',
             showConfirmButton: false,
-            timer: 3000,
+            timer: 1501,
             timerProgressBar: true,
             onOpen: (toast) => {
               toast.addEventListener('mouseenter', Swal.stopTimer)
@@ -220,7 +272,7 @@ export const ADDEDCART = (state,{id,res}) => {
             toast: true,
             position: 'top-end',
             showConfirmButton: false,
-            timer: 3000,
+            timer: 1501,
             timerProgressBar: true,
             onOpen: (toast) => {
               toast.addEventListener('mouseenter', Swal.stopTimer)

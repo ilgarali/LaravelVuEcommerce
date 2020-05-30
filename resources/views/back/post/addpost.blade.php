@@ -2,7 +2,7 @@
 @section('content')
 <div class="col-md-12">
     <div class="card-body">
-
+     
         <form class="forms-sample" enctype="multipart/form-data" method="POST"
     action="{{route('admin.post.store')}}">
           @csrf            

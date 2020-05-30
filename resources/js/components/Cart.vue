@@ -29,10 +29,11 @@
                     <div class="col-4 col-sm-4 col-md-4">
                         <div class="quantity">
                       
-                           
-                            <input type="number" step="1" max="99" min="1" @change="increase(item.id,item.quantity)" :value="item.quantity" title="Qty" class="qty"
-                                    size="4">
-                            
+                    
+                       <input type="button" value="+" class="plus"  @click="increase(item.id,item.quantity)" >
+                <input type="number" step="1" max="99" min="1" :value="item.quantity" title="Qty" class="qty"
+                        size="4">
+                    <input type="button" value="-" class="minus"  @click="decrease(item.id,item.quantity)" >
                         </div>
                     </div>
                     <div class="col-2 col-sm-2 col-md-2 text-right">
@@ -67,9 +68,13 @@ import {mapState,mapActions,mapGetters} from 'vuex';
 export default {
 components:{
 Header
-}
+},
+data() {
+    return {
+        quantity:''
+    }
+},
 
-,
 mounted() {
     
 },
@@ -79,15 +84,16 @@ computed: {
     ...mapGetters(['getPrice'])
 },
 methods: {
-    increase(id,quantity) {
-        
-        
-        this.increaseQunatity({id,quantity})
+    increase(id) {        
+        this.increaseQunatity(id)
     },
     deleteItem(id){
         this.removeItem(id)
     },
-    ...mapActions(['increaseQunatity','removeItem'])
+        decrease(id) {        
+        this.decreaseQunatity(id)
+    },
+    ...mapActions(['increaseQunatity','removeItem','decreaseQunatity'])
 },
 
 }
